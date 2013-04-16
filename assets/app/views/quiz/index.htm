@@ -1,0 +1,25 @@
+
+<div ng-controller="quiz.QuizController">
+
+    <div id="container" style="min-width: 290px; height: 300px; margin: 0 auto">
+
+        <div id="quiz-box">
+            <h3 data-bind="text: question"></h3>
+            <p>Var snall och betygsatt foljande fran 1 till 5 stjarnor.</p>
+    
+            <table>
+                <thead><tr><th>Material</th><th>Betyg</th></tr></thead>
+                    <tbody data-bind="foreach: answers">
+                        <tr>
+                            <td data-bind="text: answerText"></td>
+                            <td data-bind="starRating: points"></td>
+                        </tr>    
+                    </tbody>
+            </table>
+
+            <button data-bind="click: save">Klar</button>
+         </div>
+
+     </div>
+
+</div>

@@ -1,0 +1,50 @@
+
+<div ng-controller="chat.ListController" ng-switch="isLoading">
+
+
+	<!-- BEGIN: Loading Sequence. -->
+	<div ng-switch-when="true">
+
+
+		Loading....
+
+
+	</div>
+	<!-- END: Loading Sequence. -->
+
+
+	<!-- BEGIN: View. -->
+	<div ng-switch-when="false">
+
+
+		<div class="m-chat-list-header">
+
+			<h1>
+				{{ category.name }}
+			</h1>
+
+			<span class="back">
+				<a href="#/chat">Back to Categories</a> &raquo;
+			</span>
+
+		</div>
+
+		<p>
+			{{ category.description }}
+		</p>
+
+		<ul>
+			<li ng-repeat="chat in chats">
+
+				<a href="#/chat/{{ category.id }}/{{ chat.id }}">{{ chat.name }}</a> - 
+				{{ pet.breed }}
+
+			</li>
+		</ul>
+
+
+	</div>
+	<!-- END: View. -->
+
+
+</div>

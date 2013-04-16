@@ -1,0 +1,72 @@
+
+<div ng-controller="chat.detail.DetailController" ng-switch="isLoading">
+
+
+	<!-- BEGIN: Loading Sequence. -->
+	<div ng-switch-when="true">
+
+
+		Loading....
+
+
+	</div>
+	<!-- END: Loading Sequence. -->
+
+
+	<!-- BEGIN: View. -->
+	<div ng-switch-when="false">
+
+
+		<div class="m-chat-header">
+
+			<h1>
+				{{ chat.name }}
+			</h1>
+
+			<span class="back">
+				<a href="#/chat/{{ category.id }}">Back to {{ category.name }}</a> &raquo;
+			</span>
+
+		</div>
+
+		<p>
+			{{ chat.description }}
+		</p>
+
+		<ul class="m-pet-properties">
+			<li>
+				<strong>Breed</strong>: {{ chat.breed }}
+			</li>
+			<li>
+				<strong>Color</strong>: {{ chat.color }}
+			</li>
+			<li>
+				<strong>Sex</strong>: {{ chat.sex }}
+			</li>
+			<li>
+				<strong>Size</strong>: {{ chat.size }}
+			</li>
+		</ul>
+
+		<div class="m-tabs">
+			<a href="#/chat/{{ category.id }}/{{ chat.id }}" ng-class="{ on: ( subview == 'background' ) }">Background</a>
+			<a href="#/chat/{{ category.id }}/{{ chat.id }}/diet" ng-class="{ on: ( subview == 'diet' ) }">Diet</a>
+			<a href="#/chat/{{ category.id }}/{{ chat.id }}/medical-history" ng-class="{ on: ( subview == 'medicalHistory' ) }">Medical History</a>
+		</div>
+
+		<!-- Include View Content. -->
+		<div ng-switch="subview" class="m-tab-pane">
+			<div ng-switch-when="background" ng-include=" 'assets/app/views/chat/detail/background.htm' "></div>
+			<div ng-switch-when="diet" ng-include=" 'assets/app/views/chat/detail/diet.htm' "></div>
+			<div ng-switch-when="medicalHistory" ng-include=" 'assets/app/views/chat/detail/medical-history.htm' "></div>
+		</div>
+
+		<!-- Include Random Pet. -->
+		<div ng-include=" 'assets/app/views/chat/detail/random.htm' "></div>
+
+
+	</div>
+	<!-- END: View. -->
+
+
+</div>

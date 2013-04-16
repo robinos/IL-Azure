@@ -1,0 +1,43 @@
+
+div.m-tabs {
+	border-bottom: 1px solid #999999 ;
+	.clearfix ;
+	margin-bottom: 5px ;
+	padding-left: 0px ;
+
+	a {
+		background-color: #FFFFFF ;
+		border: 1px solid #CCCCCC ;
+		border-bottom-width: 0px ;
+		.border-radius( 2px 2px 0px 2px ) ;
+		color: #666666 ;
+		float: left ;
+		margin-right: 1px ;
+		padding: 3px 4px 3px 4px ;
+		position: relative ;
+		text-decoration: none ;
+
+		// a -- variations. 
+
+		&:hover {
+			text-decoration: underline ;
+		}
+
+		&.on {
+			border-color: #999999 ;
+			color: #333333 ;
+			font-weight: bold ;
+			padding-bottom: 1px ;
+			margin-top: 1px ;
+			top: 1px ;
+
+			// a.on -- variations.
+			
+			&:hover {
+				text-decoration: none ;
+			}
+		}
+	}
+}
+
+div.m-tab-pane {}

@@ -1,0 +1,63 @@
+
+<div ng-controller="layouts.StandardController" class="l-standard">
+
+
+	<!-- BEGIN: Layout Container. -->
+	<div class="l-container">
+
+
+		<!-- BEGIN: Layout Header. -->
+		<div class="l-header">
+
+			<span class="title">
+				Interaktiv Forelasning
+			</span>
+
+			<ul>
+				<!-- Home is never "on" - it's part of a different layout. -->
+				<li>
+					<a href="#/home">Hem</a>
+				</li>
+				<li ng-class="{ on: ( subview == 'chat' ) }">
+					<a href="#/chat">Chat</a>
+				</li>
+				<li ng-class="{ on: ( subview == 'quiz' ) }">
+					<a href="#/quiz">Quiz</a>
+				</li>
+			</ul>
+
+		</div>
+		<!-- BEGIN: Layout Header. -->
+
+
+		<!-- Include Body Content. -->
+		<div ng-switch="subview" class="l-body">
+			<div ng-switch-when="quiz" ng-include=" 'assets/app/views/quiz/index.htm' "></div>
+			<div ng-switch-when="home" ng-include=" 'assets/app/views/home/index.htm' "></div>
+			<div ng-switch-when="chat" ng-include=" 'assets/app/views/chat/index.htm' "></div>
+		</div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+
+	</div>
+	<!-- END: Layout Container. -->
+
+
+	<!-- BEGIN: Layout Footer. -->
+	<div class="l-footer">
+
+		<div class="description">
+            En applikation med AngularJS baserad på Ben Nadels arbete med 'deep-routing'.
+		</div>
+
+		<div class="author">
+			Av: Robin Osborne
+		</div>
+
+	</div>
+	<!-- END: Layout Footer. -->
+
+
+</div>
