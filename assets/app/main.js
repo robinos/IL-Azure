@@ -1,5 +1,6 @@
 //Azure variables
-var client = new WindowsAzure.MobileServiceClient('https://interactivelecture.azure-mobile.net/', 'hODmTfJKYkxAuxrlYUwRLgLevxBQUg19');
+var client = new WindowsAzure.MobileServiceClient('https://interactivelecture.azure-mobile.net/', 'hODmTfJKYkxAuxrlYUwRLgLevxBQUg19'),
+    messageItemTable = client.getTable('messages');
 
 // Create an application module.
 var Intlec = angular.module("Intlec", []);
@@ -24,29 +25,29 @@ Intlec.config(
 			.when(
 				"/chat",
 				{
-					action: "standard.chat.categories"
+					action: "standard.chat.rooms"
 				}
 			)
 			.when(
-				"/chat/:categoryID",
+				"/chat/:roomID",
 				{
-					action: "standard.chat.list"
+					action: "standard.chat.chatlist"
 				}
 			)
 			.when(
-				"/chat/:categoryID/:chatID",
+				"/chat/:roomID/:chatID",
 				{
 					action: "standard.chat.detail.background"
 				}
 			)
 			.when(
-				"/chat/:categoryID/:chatID/diet",
+				"/chat/:roomID/:chatID/diet",
 				{
 					action: "standard.chat.detail.diet"
 				}
 			)
 			.when(
-				"/chat/:categoryID/:chatID/medical-history",
+				"/chat/:roomID/:chatID/medical-history",
 				{
 					action: "standard.chat.detail.medicalHistory"
 				}

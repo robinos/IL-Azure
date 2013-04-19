@@ -4,8 +4,8 @@
 
 	app.controller(
 		"layouts.SplashController",
-		function( $scope, requestContext, _ ) {
-
+		function ($scope, requestContext, _)
+		{
 		    //--- Define Controller Methods. ------------------- //
 		    //On initial load, start authorisation
 		    function refreshAuthDisplay() {
@@ -29,7 +29,6 @@
 		        });
 		    }
 
-
 		    function logOut() {
 		        client.logout();
 		        refreshAuthDisplay();
@@ -43,61 +42,36 @@
 		        $("#logged-in button").click(logOut);
 		    });
 
-			// ...
-
-
-			// --- Define Scope Methods. ------------------------ //
-
-
-			// ...
-
+		    // --- Define Scope Methods. ------------------------ //
 
 			// --- Define Controller Variables. ----------------- //
 
-
 			// Get the render context local to this controller (and relevant params).
 			var renderContext = requestContext.getRenderContext( "splash" );
-
 			
 			// --- Define Scope Variables. ---------------------- //
-
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
 
-			// Get the current year for copyright output.
-			$scope.copyrightYear = ( new Date() ).getFullYear();
-
-
 			// --- Bind To Scope Events. ------------------------ //
-
 
 			// I handle changes to the request context.
 			$scope.$on(
 				"requestContextChanged",
-				function() {
-
+				function ()
+				{
 					// Make sure this change is relevant to this controller.
 					if ( ! renderContext.isChangeRelevant() ) {
-
 						return;
-
 					}
 
 					// Update the view that is being rendered.
 					$scope.subview = renderContext.getNextSection();
-
 				}
 			);
 
-
 			// --- Initialize. ---------------------------------- //
-
-
-			// ...
-
-
 		}
 	);
-
 })(angular, Intlec);

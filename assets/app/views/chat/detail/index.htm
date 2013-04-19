@@ -24,7 +24,7 @@
 			</h1>
 
 			<span class="back">
-				<a href="#/chat/{{ category.id }}">Back to {{ category.name }}</a> &raquo;
+				<a href="#/chat/{{ room.id }}">Back to {{ room.name }}</a> &raquo;
 			</span>
 
 		</div>
@@ -33,7 +33,7 @@
 			{{ chat.description }}
 		</p>
 
-		<ul class="m-pet-properties">
+		<ul class="m-chat-properties">
 			<li>
 				<strong>Breed</strong>: {{ chat.breed }}
 			</li>
@@ -49,9 +49,9 @@
 		</ul>
 
 		<div class="m-tabs">
-			<a href="#/chat/{{ category.id }}/{{ chat.id }}" ng-class="{ on: ( subview == 'background' ) }">Background</a>
-			<a href="#/chat/{{ category.id }}/{{ chat.id }}/diet" ng-class="{ on: ( subview == 'diet' ) }">Diet</a>
-			<a href="#/chat/{{ category.id }}/{{ chat.id }}/medical-history" ng-class="{ on: ( subview == 'medicalHistory' ) }">Medical History</a>
+			<a href="#/chat/{{ room.id }}/{{ chat.id }}" ng-class="{ on: ( subview == 'background' ) }">Background</a>
+			<a href="#/chat/{{ room.id }}/{{ chat.id }}/diet" ng-class="{ on: ( subview == 'diet' ) }">Diet</a>
+			<a href="#/chat/{{ room.id }}/{{ chat.id }}/medical-history" ng-class="{ on: ( subview == 'medicalHistory' ) }">Medical History</a>
 		</div>
 
 		<!-- Include View Content. -->
@@ -61,8 +61,8 @@
 			<div ng-switch-when="medicalHistory" ng-include=" 'assets/app/views/chat/detail/medical-history.htm' "></div>
 		</div>
 
-		<!-- Include Random Pet. -->
-		<div ng-include=" 'assets/app/views/chat/detail/random.htm' "></div>
+		<!-- Include Random Chat. -->
+<!--		<div ng-include=" 'assets/app/views/chat/detail/random.htm' "></div>-->
 
 
 	</div>

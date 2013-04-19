@@ -2,10 +2,12 @@
 <!doctype html>
 <html ng-app="Intlec" ng-controller="AppController">
 <head>
+    <!-- A failed attempt to get the utf-8 charset to work -->
 	<meta name="http-equiv" content="Content-type: text/html"; charset="utf-8" />
 
 	<title ng-bind="windowTitle">Interaktiv Forelasning</title>
 
+    <!-- The main css file, and the css file used for defining rating stars for quiz/rating systems -->
 	<link rel="stylesheet" type="text/css" href="assets/app/css/main.css"></link>
     <link rel="stylesheet" type="text/css" href="assets/app/css/rating.css"></link>
 </head>
@@ -25,7 +27,7 @@
 
 		</div>
 
-		<!-- Core layouts. -->
+		<!-- Core layouts - The splash (start) view, and the standard (main) view -->
 		<div ng-switch-when="splash" ng-include=" 'assets/app/views/layouts/splash.htm' "></div>
 		<div ng-switch-when="standard" ng-include=" 'assets/app/views/layouts/standard.htm' "></div>
 	</div>
@@ -33,17 +35,19 @@
 
 	<!-- ### JavaScript Modules. ### -->
 
+    <!-- charset=utf8 is another failed attempt to get the utf-8 charset to work -->
 
 	<!-- Load vendor scripts. -->
-    <script src='https://interactiveclassroom.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js'></script>
-	<script type="text/javascript" src="assets/vendor/jquery/jquery-1.8.3.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/vendor/angularjs/angular.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js' charset="utf-8"></script>
+    <script type="text/javascript" src='https://interactiveclassroom.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js'></script>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js' charset="utf-8"></script>
+<!--    <script src='https://js.pusher.com/2.0/pusher.min.js' charset="utf-8"></script>-->
+    <script type="text/javascript" src="assets/vendor/angularjs/angular.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js" charset="utf-8"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js" charset="utf-8"></script>
-    <script src="assets/vendor/Highcharts-3.0.0/js/highcharts.js" charset="utf-8"></script>
-    <script src="assets/vendor/Highcharts-3.0.0/js/modules/exporting.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/vendor/Highcharts-3.0.0/js/highcharts.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/vendor/Highcharts-3.0.0/js/modules/exporting.js" charset="utf-8"></script>
 
-	<!-- Load AngularJS application module. -->
+	<!-- Load AngularJS main application module. (important for routing) -->
 	<script type="text/javascript" src="assets/app/main.js" charset="utf-8"></script>
 
 	<!-- Load Controllers. -->
@@ -51,20 +55,21 @@
 	<script type="text/javascript" src="assets/app/controllers/home/home-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/layouts/splash-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/layouts/standard-controller.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/app/controllers/chat/categories-controller.js" charset="utf-8"></script>
+	<script type="text/javascript" src="assets/app/controllers/chat/room-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/chat/detail/detail-controller.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/app/controllers/chat/detail/random-controller.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/app/controllers/chat/list-controller.js" charset="utf-8"></script>
+<!--	<script type="text/javascript" src="assets/app/controllers/chat/detail/random-controller.js" charset="utf-8"></script>-->
+	<script type="text/javascript" src="assets/app/controllers/chat/chatlist-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/chat/chat-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/app-controller.js" charset="utf-8"></script>
 
-	<!-- Load Services. -->
-	<script type="text/javascript" src="assets/app/services/category-service.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/app/services/lodash.js" charset="utf-8"></script>
+	<!-- Load Services - parsing, request context, and information services -->
+    <script type="text/javascript" src="assets/app/services/lodash.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/app/services/request-context.js" charset="utf-8"></script>
+	<script type="text/javascript" src="assets/app/services/room-service.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/services/chat-service.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/app/services/request-context.js" charset="utf-8"></script>
-	
-	<!-- Load Beans. -->
+<!--	<script type="text/javascript" src="assets/app/services/pusher-service.js" charset="utf-8"></script>-->
+
+	<!-- Load Beans - gives render context -->
 	<script type="text/javascript" src="assets/app/beans/render-context.js" charset="utf-8"></script>
 
 </body>

@@ -1,5 +1,5 @@
-(function( ng, app ) {
-	
+(function (ng, app)
+{
 	"use strict";
 
 	// I provide a repository for the chat.
@@ -7,87 +7,73 @@
 		"chatService",
 		function( $q, _ ) {
 
-
-			// I get the pet with the given ID.
-			function getChatByID( id ) {
-
+			// Get the chat with the given ID.
+		    function getChatByID(id)
+		    {
 				var deferred = $q.defer();
 				var chat = _.findWithProperty( cache, "id", id );
 
 				if ( chat ) {
-
 					deferred.resolve( ng.copy( chat ) );
-
 				} else {
-
 					deferred.reject();
-
 				}
-
 				return( deferred.promise );
-
 			}
 
-
-			// I get the chats in the given category.
-			function getChatsByCategoryID( categoryID ) {
-
+			// Get the chats in the given room.
+		    function getChatsByRoomID(roomID)
+		    {
 				var deferred = $q.defer();
-				var chats = _.filterWithProperty( cache, "categoryID", categoryID );
+				var chats = _.filterWithProperty( cache, "roomID", roomID );
 
 				if (chats) {
-
 					deferred.resolve( ng.copy( chats ) );
-
 				} else {
-
 					deferred.reject();
-
 				}
-
 				return( deferred.promise );
-
 			}
 
 
-			// I get a random chat in the given category, less the given chat.
-			function getRandomChatExcluding( categoryID, excludeChatID ) {
+		    // Get a random chat in the given room, less the given chat.
+		    //function getRandomChatExcluding(roomID, excludeChatID)
+		    //{
 
-				var deferred = $q.defer();
-				var chats = _.filterWithProperty( cache, "categoryID", categoryID );
+			//	var deferred = $q.defer();
+			//	var chats = _.filterWithProperty( cache, "roomID", roomID );
 
-				if (chats) {
+			//	if (chats) {
 
-					var index = _.random( 0, ( chats.length - 1 ) );
+			//		var index = _.random( 0, ( chats.length - 1 ) );
 
-					while (chats[index].id === excludeChatID) {
+			//		while (chats[index].id === excludeChatID) {
 
-					    index = _.random(0, (chats.length - 1));
+			//		    index = _.random(0, (chats.length - 1));
 
-					}
+			//		}
 
-					deferred.resolve(ng.copy(chats[index]));
+			//		deferred.resolve(ng.copy(chats[index]));
 
-				} else {
+			//	} else {
 
-					deferred.reject();
+			//		deferred.reject();
 
-				}
+			//	}
 
-				return( deferred.promise );
+			//	return( deferred.promise );
 
-			}
-
+			//}
 
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 
-
-			// Set up a collection of constants for our pet categories. Normally, this would be managed
+			// Set up a collection of constants for our chat rooms. Normally, this would be managed
 			// by the server-side relational database; but, since we're using static data, this will 
 			// just make the code easier to read.
-			var categories = {
-				chat: "chat"
+			var rooms = {
+			    room101: "room101",
+			    room201: "room201"
 			};
 
 			// Set up a collection of size constants.
@@ -102,7 +88,7 @@
 			var cache = [
 				{
 					id: 1,
-					categoryID: categories.chat,
+					roomID: rooms.room101,
 					name: "Annie",
 					breed: "Pit Bull Terrier",
 					color: "Tricolor",
@@ -115,7 +101,7 @@
 				},
 				{
 					id: 2,
-					categoryID: categories.chat,
+					roomID: rooms.room101,
 					name: "Voodoo",
 					breed: "Chihuahua",
 					color: "White With Black",
@@ -128,7 +114,7 @@
 				},
 				{
 					id: 3,
-					categoryID: categories.chat,
+					roomID: rooms.room101,
 					name: "Frodo",
 					breed: "Yorkie",
 					color: "Silver With Blue",
@@ -141,7 +127,7 @@
 				},
 				{
 					id: 4,
-					categoryID: categories.chat,
+					roomID: rooms.room101,
 					name: "Brook",
 					breed: "Labrador Retriever",
 					color: "Yellow",
@@ -154,7 +140,7 @@
 				},
 				{
 					id: 5,
-					categoryID: categories.chat,
+					roomID: rooms.room201,
 					name: "Henry",
 					breed: "Bulldog",
 					color: "Tricolor",
@@ -167,20 +153,15 @@
 				},
 			];
 
-
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
-
 
 			// Return the public API.
 			return({
 				getChatByID: getChatByID,
-				getChatsByCategoryID: getChatsByCategoryID,
-				getRandomChatExcluding: getRandomChatExcluding
+				getChatsByRoomID: getChatsByRoomID
+				//getRandomChatExcluding: getRandomChatExcluding
 			});
-
-
 		}
 	);
-
 })(angular, Intlec);

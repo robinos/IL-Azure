@@ -1,0 +1,44 @@
+
+<div ng-controller="chat.RoomController" ng-switch="isLoading">
+
+
+	<!-- BEGIN: Loading Sequence. -->
+	<div ng-switch-when="true">
+
+		Loading....
+
+	</div>
+	<!-- END: Loading Sequence. -->
+
+
+	<!-- BEGIN: View. -->
+    <div ng-switch-when="false">
+
+		<h1>
+			Choose a chat room:
+		</h1>
+
+		<p>
+			There is only one real chat room in this code.  Choice is for demonstation!
+		</p>
+
+        <!-- List the rooms.-->
+		<ul class="m-room-list">
+
+			<li ng-repeat="room in rooms">
+
+				<a href="#/chat/{{ room.id }}">
+					<span class="name">{{ room.name }}</span>
+					<span class="description">{{ room.description }}</span>
+				</a>
+
+			</li>
+
+		</ul>
+		
+
+	</div>
+	<!-- END: View. -->
+
+
+</div>
