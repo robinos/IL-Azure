@@ -1,4 +1,4 @@
-(function (ng, app)
+﻿(function (ng, app)
 {	
 	"use strict";
 
@@ -37,14 +37,14 @@
 			// Set up the rooms data cache. For this demo, we'll just use static data.
 			var cache = [
 				{
-					id: "room101",
-					name: "room101",
-					description: "Datorkunskap rum 101",
+					id: "rum101",
+					name: "Rum 101",
+					description: "Datorkunskap - rum 101.",
 				},
 				{
-				    id: "room201",
-				    name: "room201",
-				    description: "Datorkunskap rum 201."
+				    id: "rum201",
+				    name: "Rum 201",
+				    description: "Datorkunskap - rum 201."
 				}
 			];
 
