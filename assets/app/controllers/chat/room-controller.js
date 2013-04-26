@@ -1,4 +1,4 @@
-(function( ng, app ){
+﻿(function( ng, app ){
 
 	"use strict";
 
@@ -14,7 +14,6 @@
 				$scope.rooms = _.sortOnProperty( rooms, "name", "asc" );
 			}
 
-
 			// Loads the "remote" data from the server.
 			function loadRemoteData()
 			{
@@ -27,7 +26,7 @@
 						applyRemoteData( response );
 					},
 					function( response ) {
-						$scope.openModalWindow( "error", "For some reason we couldn't load the rooms. Try refreshing your browser." );
+						$scope.openModalWindow( "error", "Av någon anledning kunde rumlistan inte laddas. Försök ladda om sidan." );
 					}
 				);
 			}
@@ -71,7 +70,7 @@
 			// --- Initialize. ---------------------------------- //
 
 			// Set the window title.
-			$scope.setWindowTitle( "Chat" );
+			$scope.setWindowTitle( "Chatt" );
 
 			// Load the "remote" data.
 			loadRemoteData();

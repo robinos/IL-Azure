@@ -1,6 +1,5 @@
-// ----------------------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------
 // Reusable bindings - ideally kept in a separate file
-
 ko.bindingHandlers.starRating = {
     init: function (element, valueAccessor) {
         $(element).addClass("starRating");
@@ -29,7 +28,6 @@ ko.bindingHandlers.starRating = {
 
 // ----------------------------------------------------------------------------
 // Page viewmodel
-
 (function (ng, app) {
 
 	"use strict";
@@ -61,7 +59,7 @@ ko.bindingHandlers.starRating = {
 		                    type: 'bar'
 		                },
 		                title: {
-		                    text: 'Granssnittsvarden: '
+		                    text: 'Gränssnittsvärden: '
 		                },
 		                subtitle: {
 		                    text: null
@@ -75,7 +73,7 @@ ko.bindingHandlers.starRating = {
 		                yAxis: {
 		                    min: 0,
 		                    title: {
-		                        text: 'Betyg (poang)',
+		                        text: 'Betyg (poäng)',
 		                        align: 'high'
 		                    },
 		                    labels: {
@@ -83,7 +81,7 @@ ko.bindingHandlers.starRating = {
 		                    }
 		                },
 		                tooltip: {
-		                    valueSuffix: ' poang'
+		                    valueSuffix: ' poäng'
 		                },
 		                plotOptions: {
 		                    bar: {
@@ -120,7 +118,7 @@ ko.bindingHandlers.starRating = {
 		        };
 		    }
 
-		    ko.applyBindings(new SurveyViewModel("Betygsatt din forstaelse: ", [
+		    ko.applyBindings(new SurveyViewModel("Betygsätt din forståelse: ", [
                "Lab1 procedur",
                "Signaturer i PHP",
                "Monitorer",
@@ -129,55 +127,38 @@ ko.bindingHandlers.starRating = {
 
 			// ...
 
-
 			// --- Define Scope Methods. ------------------------ //
-
 
 			// ...
 
-
 			// --- Define Controller Variables. ----------------- //
-
 
 			// Get the render context local to this controller (and relevant params).
 			var renderContext = requestContext.getRenderContext( "standard.quiz" );
-
 			
 			// --- Define Scope Variables. ---------------------- //
-
 
 			// The subview indicates which view is going to be rendered on the page.
 			$scope.subview = renderContext.getNextSection();
 			
-
 			// --- Bind To Scope Events. ------------------------ //
-
 
 			// I handle changes to the request context.
 			$scope.$on(
 				"requestContextChanged",
 				function() {
-
 					// Make sure this change is relevant to this controller.
 					if ( ! renderContext.isChangeRelevant() ) {
-
 						return;
-
 					}
-
 					// Update the view that is being rendered.
 					$scope.subview = renderContext.getNextSection();
-
 				}
 			);
 
-
 			// --- Initialize. ---------------------------------- //
 
-
 			$scope.setWindowTitle( "Quiz" );
-
-
 		}
 	);
 

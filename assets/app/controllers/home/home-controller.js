@@ -1,4 +1,4 @@
-(function (ng, app)
+﻿(function (ng, app)
 {
 	"use strict";
 
@@ -42,7 +42,7 @@
 
 			// --- Initialize. ---------------------------------- //
 
-			$scope.setWindowTitle( "Interaktiv Forelasning" );
+			$scope.setWindowTitle( "Interaktiv Föreläsning" );
 		}
 	);
 })(angular, Intlec);

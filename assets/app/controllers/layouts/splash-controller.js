@@ -1,4 +1,4 @@
-(function (ng, app) {
+﻿(function (ng, app) {
 
 	"use strict";
 
@@ -16,10 +16,10 @@
 		        if (isLoggedIn) {
 		            $("#login-name").text(client.currentUser.userId);
 		            //refreshMessageItems();
-		            $('#summary').html('Du ar nu inloggad.');
+		            $('#summary').html('Du är nu inloggad.');
 		        }
 		        else {
-		            $('#summary').html('<strong>Du maste logga in for att fa tillgang till chat.</strong>');
+		            $('#summary').html('<strong>Du måste logga in för att få tillgång till chatt.</strong>');
 		        }
 		    }
 
@@ -32,7 +32,7 @@
 		    function logOut() {
 		        client.logout();
 		        refreshAuthDisplay();
-		        $('#summary').html('<strong>Du maste logga in for att fa tillgang till chat.</strong>');
+		        $('#summary').html('<strong>Du måste logga in för att få tillgång till chatt.</strong>');
 		    }
 
 		    // On page init, fetch the data and set up event handlers
