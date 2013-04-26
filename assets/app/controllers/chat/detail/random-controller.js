@@ -1,4 +1,4 @@
-﻿(function( ng, app ){
+(function( ng, app ){
 
 	"use strict";
 

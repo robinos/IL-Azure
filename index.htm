@@ -1,15 +1,15 @@
-﻿
+
 <!doctype html>
 <html ng-app="Intlec" ng-controller="AppController">
 <head>
+    <!-- A failed attempt to get the utf-8 charset to work -->
 	<meta name="http-equiv" content="Content-type: text/html"; charset="utf-8" />
 
-	<title ng-bind="windowTitle">Interaktiv Föreläsning</title>
+	<title ng-bind="windowTitle">Interaktiv Forelasning</title>
 
-    <!-- The css file used for defining rating stars for quiz/rating systems, the css for bootstrap, and the main css file -->
-    <link rel="stylesheet" type="text/css" href="assets/app/css/rating.css">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="assets/app/css/main.css">
+    <!-- The main css file, and the css file used for defining rating stars for quiz/rating systems -->
+	<link rel="stylesheet" type="text/css" href="assets/app/css/main.css"></link>
+    <link rel="stylesheet" type="text/css" href="assets/app/css/rating.css"></link>
 </head>
 <body>
 
@@ -19,10 +19,12 @@
 			the page. Once the app kicks in, however, the calculated subview will determine the
 			appropriate layout to render.
 		-->
-		<div ng-switch-when="loading" class="l-loading">			
+		<div ng-switch-when="loading" class="l-loading">
+			
 			<p>
-				Laddar applikationen
+				Loading Application
 			</p>	
+
 		</div>
 
 		<!-- Core layouts - The splash (start) view, and the standard (main) view -->
@@ -30,19 +32,20 @@
 		<div ng-switch-when="standard" ng-include=" 'assets/app/views/layouts/standard.htm' "></div>
 	</div>
 
+
 	<!-- ### JavaScript Modules. ### -->
 
+    <!-- charset=utf8 is another failed attempt to get the utf-8 charset to work -->
+
 	<!-- Load vendor scripts. -->
-    <script src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js'></script>
-    <script src='https://interactiveclassroom.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js'></script>
-    <script src='https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js'></script>
-    <div pub-key="pub-c-852c5d5a-5623-4e9c-82f1-41806212b81d" sub-key="sub-c-49904b1c-ab75-11e2-937f-12313f022c90" ssl="off" origin="pubsub.pubnub.com" id="pubnub"></div>
-    <script src="http://cdn.pubnub.com/pubnub-3.1.min.js"></script>
-    <script type="text/javascript" src="assets/vendor/angularjs/angular.min.js"></script>
-	<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js"></script>
-    <script type="text/javascript" src="assets/vendor/Highcharts-3.0.0/js/highcharts.js""></script>
-    <script type="text/javascript" src="assets/vendor/Highcharts-3.0.0/js/modules/exporting.js"></script>
-    <script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js' charset="utf-8"></script>
+    <script type="text/javascript" src='https://interactiveclassroom.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js'></script>
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js' charset="utf-8"></script>
+<!--    <script src='https://js.pusher.com/2.0/pusher.min.js' charset="utf-8"></script>-->
+    <script type="text/javascript" src="assets/vendor/angularjs/angular.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="assets/vendor/lodash/lodash.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/vendor/Highcharts-3.0.0/js/highcharts.js" charset="utf-8"></script>
+    <script type="text/javascript" src="assets/vendor/Highcharts-3.0.0/js/modules/exporting.js" charset="utf-8"></script>
 
 	<!-- Load AngularJS main application module. (important for routing) -->
 	<script type="text/javascript" src="assets/app/main.js" charset="utf-8"></script>
@@ -54,6 +57,7 @@
 	<script type="text/javascript" src="assets/app/controllers/layouts/standard-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/chat/room-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/chat/detail/detail-controller.js" charset="utf-8"></script>
+<!--	<script type="text/javascript" src="assets/app/controllers/chat/detail/random-controller.js" charset="utf-8"></script>-->
 	<script type="text/javascript" src="assets/app/controllers/chat/chatlist-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/chat/chat-controller.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/controllers/app-controller.js" charset="utf-8"></script>
@@ -62,7 +66,8 @@
     <script type="text/javascript" src="assets/app/services/lodash.js" charset="utf-8"></script>
     <script type="text/javascript" src="assets/app/services/request-context.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/app/services/room-service.js" charset="utf-8"></script>
-	<script type="text/javascript" src="assets/app/services/chat-service.js" charset="utf-8"></script>>
+	<script type="text/javascript" src="assets/app/services/chat-service.js" charset="utf-8"></script>
+<!--	<script type="text/javascript" src="assets/app/services/pusher-service.js" charset="utf-8"></script>-->
 
 	<!-- Load Beans - gives render context -->
 	<script type="text/javascript" src="assets/app/beans/render-context.js" charset="utf-8"></script>

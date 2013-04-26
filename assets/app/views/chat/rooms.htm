@@ -1,21 +1,25 @@
-﻿
+
 <div ng-controller="chat.RoomController" ng-switch="isLoading">
+
 
 	<!-- BEGIN: Loading Sequence. -->
 	<div ng-switch-when="true">
-		Laddar....
+
+		Loading....
+
 	</div>
 	<!-- END: Loading Sequence. -->
+
 
 	<!-- BEGIN: View. -->
     <div ng-switch-when="false">
 
 		<h1>
-			Välj ett chattrum:
+			Choose a chat room:
 		</h1>
 
 		<p>
-			I vår demo finns där bara två chattrum.
+			There is only one real chat room in this code.  Choice is for demonstation!
 		</p>
 
         <!-- List the rooms.-->
@@ -27,9 +31,14 @@
 					<span class="name">{{ room.name }}</span>
 					<span class="description">{{ room.description }}</span>
 				</a>
+
 			</li>
-		</ul>		
+
+		</ul>
+		
+
 	</div>
 	<!-- END: View. -->
+
 
 </div>

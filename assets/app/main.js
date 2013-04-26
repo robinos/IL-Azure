@@ -1,29 +1,9 @@
-﻿//Azure variables
-var client = new WindowsAzure.MobileServiceClient('https://interactivelecture.azure-mobile.net/', 'hODmTfJKYkxAuxrlYUwRLgLevxBQUg19');
-    //messageItemTable = client.getTable('messages');
-
-//var messages = [];
-//var realtimeStatus = "Connecting...";
-//var channel = "pubnub_chat";
-//var limit = 20;
-
-//Pusher variables
-//var pusher = new Pusher('057358e5f63b150193fe'),
-//channel = pusher.subscribe('test_channel');
+//Azure variables
+var client = new WindowsAzure.MobileServiceClient('https://interactivelecture.azure-mobile.net/', 'hODmTfJKYkxAuxrlYUwRLgLevxBQUg19'),
+    messageItemTable = client.getTable('messages');
 
 // Create an application module.
-var Intlec = angular.module("Intlec", []).directive('coolFade', function () {
-    return {
-        compile: function (elm) {
-            //console.log('compiling');
-            $(elm).css('opacity', 0);
-            return function (scope, elm, attrs) {
-                // console.log('animating');
-                $(elm).animate({ opacity: 1.0 }, 1000);
-            };
-        }
-    };
-});
+var Intlec = angular.module("Intlec", []);
 
 // Configure the routing. The $routeProvider will be automatically injected into 
 // the configurator.

@@ -1,4 +1,4 @@
-﻿(function (ng, app)
+(function (ng, app)
 {
 	"use strict";
 
@@ -35,6 +35,36 @@
 				return( deferred.promise );
 			}
 
+
+		    // Get a random chat in the given room, less the given chat.
+		    //function getRandomChatExcluding(roomID, excludeChatID)
+		    //{
+
+			//	var deferred = $q.defer();
+			//	var chats = _.filterWithProperty( cache, "roomID", roomID );
+
+			//	if (chats) {
+
+			//		var index = _.random( 0, ( chats.length - 1 ) );
+
+			//		while (chats[index].id === excludeChatID) {
+
+			//		    index = _.random(0, (chats.length - 1));
+
+			//		}
+
+			//		deferred.resolve(ng.copy(chats[index]));
+
+			//	} else {
+
+			//		deferred.reject();
+
+			//	}
+
+			//	return( deferred.promise );
+
+			//}
+
 			// ---------------------------------------------- //
 			// ---------------------------------------------- //
 
@@ -42,8 +72,8 @@
 			// by the server-side relational database; but, since we're using static data, this will 
 			// just make the code easier to read.
 			var rooms = {
-			    room101: "rum101",
-			    room201: "rum201"
+			    room101: "room101",
+			    room201: "room201"
 			};
 
 			// Set up a collection of size constants.
@@ -130,6 +160,7 @@
 			return({
 				getChatByID: getChatByID,
 				getChatsByRoomID: getChatsByRoomID
+				//getRandomChatExcluding: getRandomChatExcluding
 			});
 		}
 	);

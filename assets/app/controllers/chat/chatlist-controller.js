@@ -1,102 +1,110 @@
-﻿(function (ng, app) {
+(function (ng, app) {
 
 	"use strict";
 
 	app.controller(
 		"chat.ChatListController",
-		function( $scope, $location, $q, requestContext, roomService, chatService, _ ) {
-		    // --- Define Controller Variables. ----------------- //
+		function( $scope, $location, $q, requestContext, roomService, chatService, _ ) { //pusherService,
 
-		    $scope.messages = [];
-		    $scope.realtimeStatus = "Ansluter...";
-		    $scope.channel = "pubnub_chat"; //default
-		    $scope.limit = 20;
+		    function refreshMessageItems() {
+		        var query = messageItemTable.where({ teacher: false });
 
-		    //publish a chat message
-		    //function publish(){
-		    $scope.publish = function (message) {
-
-		        alert([$scope.channel]);
-
-		        $scope.subscribe();
-
-		        //toggle the progress bar
-		        $('#progress_bar').slideToggle();
-
-		        PUBNUB.publish({
-		            channel: $scope.channel,
-		            message: message
-		        }) 
-             
-		        //reset the message text
-		        message.text = "";
-		    }
-
-		    //gets the messages history   
-		    //function history() {
-		    $scope.history = function () {
-		        PUBNUB.history({
-		            channel: $scope.channel,
-		            limit: $scope.limit
-		        }, function (messages) {
-		            // Shows All Messages
-		            $scope.$apply(function () {
-		                $scope.messages = messages.reverse();
+		        query.read().then(function (messageItems) {
+		            var listItems = $.map(messageItems, function (item) {
+		                return $('<li>')
+                            .attr('data-messageitem-id', item.id)
+                            .append($('<button class="item-delete">Delete</button>'))
+                            //.append($('<input type="checkbox" class="item-complete">').prop('checked', item.teacher))
+                            .append($('<div>').append($('<input class="item-text">').val(item.text)));
 		            });
+
+		            $('#message-items').empty().append(listItems).toggle(listItems.length > 0);
+		            $('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
 		        });
 		    }
 
-		    //function subscribe() {
-		    $scope.subscribe = function(){  
-		        PUBNUB.subscribe({
-		            channel: $scope.channel,
-		            restore: false,
-
-		            callback: function (message) {
-
-		                //toggle the progress_bar
-		                $('#progress_bar').slideToggle();
-
-		                $scope.$apply(function () {
-		                    $scope.messages.unshift(message);
-		                });
-		            },
-
-		            disconnect: function () {
-		                $scope.$apply(function () {
-		                    $scope.realtimeStatus = 'Inte ansluten';
-		                });
-		            },
-
-		            reconnect: function () {
-		                $scope.$apply(function () {
-		                    $scope.realtimeStatus = 'Ansluten';
-		                });
-		            },
-
-		            connect: function () {
-		                $scope.$apply(function () {
-		                    $scope.realtimeStatus = 'Ansluten';
-		                    //hide the progress bar
-		                    $('#progress_bar').slideToggle();
-		                    //load the message history from PubNub
-		                    $scope.history();
-		                });
-		            }
-		        })
+		    function getMessageItemId(formElement) {
+		        return Number($(formElement).closest('li').attr('data-messageitem-id'));
 		    }
+
+		    // Handle insert
+		    $('#add-item').submit(function (evt) {
+		        var textbox = $('#new-item-text'),
+                    itemText = textbox.val();
+		        var time = new Date().getTime();
+		        if (itemText !== '') {
+		            messageItemTable.insert({ text: itemText, timestamp: time, teacher: false }).then(refreshMessageItems);
+		        }
+		        textbox.val('').focus();
+		        evt.preventDefault();
+		    });
+
+		    // Handle update
+		    $(document.body).on('change', '.item-text', function () {
+		        var newText = $(this).val();
+		        messageItemTable.update({ id: getMessageItemId(this), text: newText });
+		    });
+
+		    //$(document.body).on('change', '.item-complete', function () {
+		    //    var isTeacher = $(this).prop('checked');
+		    //    messageItemTable.update({ id: getMessageItemId(this), teacher: isTeacher }).then(refreshMessageItems);
+		    //});
+
+		    // Handle delete
+		    $(document.body).on('click', '.item-delete', function () {
+		        messageItemTable.del({ id: getMessageItemId(this) }).then(refreshMessageItems);
+		    });
+
+		    // On initial load, start by fetching the current data
+		    refreshMessageItems();
+
+		    // --- Define Controller Variables. ----------------- //
+
+		    //$scope.messages = [];
+		    //$scope.message = {
+		    //    name: name = "",
+		    //    text: message = ""
+		    //}
+		    //$scope.realTimeStatus = pusherService.pusherStatusUpdate();
+
+			//// --- Define Controller Methods. ------------------- //
+
+            ////Subscribe to the Pusher and channel
+		    //function subscribe () {
+		    //    pusherService.pusherInitialise();
+		    //    pusherService.pusherSubscribe();
+
+		    //    realTimeStatus = pusherService.pusherStatusUpdate();
+		    //};
+
+		    ////publish a chat message
+		    //function publish() {
+		    //    //toggle the progress bar
+		    //    $('#progress_bar').slideToggle();
+
+		    //    pusherService.pusherBind({
+		    //        command: 'message',
+		    //        commandFunction: $scope.message.text
+		    //    })
+
+		    //    messages.push(message);
+
+		    //    //reset the message text
+		    //    message.text = "";
+		    //}
+
+		    ////Gets the messages history   
+		    //function history() {
+		    //    return(messages);
+		    //}
 
 			// Apply the remote data to the local view model.
 		    function applyRemoteData(room, chats)
 		    {
-		        $scope.room = room;
+				$scope.room = room;
 				$scope.chats = _.sortOnProperty( chats, "name", "asc" );
 
-				$scope.setWindowTitle(room.name);
-				$scope.channel = $scope.room.id + "_chat";
-
-		        //subscribe();
-				$scope.subscribe();
+				$scope.setWindowTitle( room.name );				
 			}
 
 			// Load the remote data from the server.
@@ -107,7 +115,7 @@
 				var promise = $q.all(
 					[
 						roomService.getRoomByID( $scope.roomID ),
-						chatService.getChatsByRoomID($scope.roomID),
+						chatService.getChatsByRoomID( $scope.roomID )
 					]
 				);
 
@@ -115,12 +123,12 @@
 					function (response)
 					{
 						$scope.isLoading = false;
-						applyRemoteData(response[0], response[1]);
+						applyRemoteData( response[ 0 ], response[ 1 ] );
 					},
 					function (response)
 					{
 						// The room couldn't be loaded for some reason - possibly someone hacking with the URL. 
-					    $location.path( "/chat" );
+						$location.path( "/chat" );
 					}
 				);
 
@@ -135,7 +143,7 @@
 			
 			// --- Define Scope Variables. ---------------------- //
 
-			// Get the ID of the room.
+			// Get the ID of the category.
 			$scope.roomID = requestContext.getParam( "roomID" );
 
 			// Flag for that data is being loaded.
@@ -161,22 +169,24 @@
 					}
 
 					// Get the relevant route IDs.
-					$scope.roomID = requestContext.getParam("roomID");
+					$scope.roomID = requestContext.getParam( "roomID" );
 
 					// Update the view that is being rendered.
 					$scope.subview = renderContext.getNextSection();
 
 					// If the relevant IDs have changed, refresh the view.
-					if (requestContext.hasParamChanged("roomID")) {
+					if ( requestContext.hasParamChanged( "roomID" ) ) {
 					    loadRemoteData();
+					    refreshMessageItems();
 					}
+
 				}
 			);
 
 			// --- Initialize. ---------------------------------- //
 
 			// Set the interim title.
-			$scope.setWindowTitle( "Laddar chattrum" );
+			$scope.setWindowTitle( "Loading Room" );
 
 			// Load the "remote" data.
 			loadRemoteData();
