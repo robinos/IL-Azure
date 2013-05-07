@@ -15,7 +15,6 @@
 
 		        if (isLoggedIn) {
 		            $("#login-name").text(client.currentUser.userId);
-		            //refreshMessageItems();
 		            $('#summary').html('Du är nu inloggad.');
 		        }
 		        else {
