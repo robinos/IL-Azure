@@ -38,16 +38,13 @@ a {
 div.l-loading {
   background-color: #262626 ;
   bottom: 0px ;
-  left: 0px ;
   position: fixed ;
-  right: 0px ;
   top: 0px ;
 }
 div.l-loading p {
   color: #F0F0F0 ;
   font-size: 12px ;
   font-style: italic ;
-  left: 0px ;
   position: absolute ;
   text-align: center ;
   top: 48% ;
@@ -55,7 +52,7 @@ div.l-loading p {
 }
 div.l-splash {
   margin: 15px auto 15px auto ;
-  width: 305px ;
+  width: 100% ;
 }
 div.l-splash div.l-container {
   -webkit-border-radius: 2px 2px 2px 2px;
@@ -66,8 +63,9 @@ div.l-splash div.l-container {
   box-shadow: 0px 0px 5px 1px #666666;
   padding: 0px 0px 1px 0px ;
 }
-div.l-splash div.l-header {
-  background: url("../img/header-splash.jpg") 0px 0px no-repeat;
+div.l-splash div.l-header 
+{
+  background-color: #262626 ;
   -webkit-border-radius: 2px 2px 0px 0px;
   -moz-border-radius: 2px 2px 0px 0px;
   border-radius: 2px 2px 0px 0px;
@@ -81,11 +79,10 @@ div.l-splash div.l-header span.title {
   font-weight: bold ;
   line-height: 30px ;
   position: absolute ;
-  right: 0px ;
   text-align: center ;
   text-shadow: 1px 1px #000000 ;
   top: 1px ;
-  width: 305px ;
+  width: 100% ;
 }
 div.l-splash div.l-login {
   -webkit-border-radius: 2px 2px 2px 2px;
@@ -98,11 +95,9 @@ div.l-splash div.l-login {
   font-size: 12px ;
   font-weight: normal ;
   line-height: 18px ;
-  left: 10px ;
-  right: 1px ;
-  text-align: left ;
+  text-align: center ;
   top: 0px ;
-  width: 305px ;
+  width: 100% ;
 }
 div.l-splash div.l-body {
   margin: 20px 20px 20px 20px ;
@@ -112,13 +107,16 @@ div.l-splash div.l-footer {
   font-size: 8px ;
   line-height: 16px ;
   margin: 10px 10px 10px 10px ;
+  text-align: center ;
 }
 div.l-splash div.l-footer div.description {
   margin-bottom: 10px ;
+  text-align: center ;
 }
 div.l-splash div.l-footer div.author a {
   color: #999999 ;
   text-decoration: none ;
+  text-align: center ;
 }
 div.l-splash div.l-footer div.author a:hover {
   color: #333333 ;
@@ -126,7 +124,7 @@ div.l-splash div.l-footer div.author a:hover {
 }
 div.l-standard {
   margin: 5px auto 5px auto ;
-  width: 305px ;
+  width: 100% ;
 }
 div.l-standard div.l-container {
   -webkit-border-radius: 2px 2px 2px 2px;
@@ -138,7 +136,7 @@ div.l-standard div.l-container {
   padding: 0px 0px 1px 0px ;
 }
 div.l-standard div.l-header {
-  background: url("../img/header-standard.jpg") 0px 0px no-repeat;
+  background-color: #262626 ;
   -webkit-border-radius: 2px 2px 0px 0px;
   -moz-border-radius: 2px 2px 0px 0px;
   border-radius: 2px 2px 0px 0px;
@@ -146,15 +144,16 @@ div.l-standard div.l-header {
   position: relative ;
 }
 div.l-standard div.l-header span.title {
-  color: #262626 ;
+  color: #FFFFFF ;
   font-family: Georgia, serif ;
   font-size: 24px ;
   font-weight: bold ;
-  left: 20px ;
   line-height: 26px ;
   position: absolute ;
-  text-shadow: 1px 1px rgba(255, 255, 255, 0.8);
+  text-align: center ;
+  text-shadow: 1px 1px #000000 ;
   top: 1px ;
+  width: 100% ;
 }
 div.l-standard div.l-header ul {
   background-color: #F0F0F0 ;
@@ -163,18 +162,18 @@ div.l-standard div.l-header ul {
   bottom: 0px ;
   font-size: 12px ;
   height: 34px ;
-  left: 0px ;
   list-style-type: none ;
   margin: 0px 0px 0px 0px ;
   padding: 0px 0px 0px 0px ;
   position: absolute ;
-  right: 0px ;
+  width: 100% ;
 }
 div.l-standard div.l-header ul li {
   border-right: 1px dotted #CCCCCC ;
   float: left ;
   margin: 0px 0px 0px 0px ;
   padding: 0px 0px 0px 0px ;
+  width: 33% ;
 }
 div.l-standard div.l-header ul li a {
   color: #666666 ;
@@ -183,7 +182,7 @@ div.l-standard div.l-header ul li a {
   line-height: 35px ;
   text-align: center ;
   text-decoration: none ;
-  width: 100px ;
+  width: 33% ;
 }
 div.l-standard div.l-header ul li a:hover {
   text-decoration: underline ;
@@ -198,19 +197,24 @@ div.l-standard div.l-header ul li.on a:hover {
 }
 div.l-standard div.l-body {
   margin: 25px 20px 25px 20px ;
+  text-align: center ;
+  width: 100% ;
 }
 div.l-standard div.l-footer {
   color: #999999 ;
   font-size: 8px ;
   line-height: 16px ;
   margin: 10px 10px 10px 10px ;
+  text-align: center ;
 }
 div.l-standard div.l-footer div.description {
   margin-bottom: 10px ;
+  text-align: center ;
 }
 div.l-standard div.l-footer div.author a {
   color: #999999 ;
   text-decoration: none ;
+  text-align: center ;
 }
 div.l-standard div.l-footer div.author a:hover {
   color: #333333 ;
@@ -289,7 +293,7 @@ ul.m-home-nav li {
   position: absolute ;
   text-align: center ;
   top: 0px ;
-  width: 140px ;
+  width: 50% ;
 }
 ul.m-home-nav li a {
   bottom: 0px ;
@@ -314,13 +318,14 @@ ul.m-home-nav li span.page {
   text-decoration: underline ;
 }
 ul.m-home-nav li.quiz {
-  left: 130px ;
+  left: 50% ;
 }
 ul.m-home-nav li.chat {
-  right: 130px ;
+  right: 50% ;
 }
 div.m-chat-header {
   position: relative ;
+  text-align: center ;
 }
 div.m-chat-header span.back {
   color: #999999 ;
@@ -347,7 +352,6 @@ div.m-chat-list-header span.back {
   font-size: 16px ;
   line-height: 20px ;
   position: absolute ;
-  right: 0px ;
   top: 0px ;
 }
 div.m-chat-list-header span.back a {
@@ -416,6 +420,7 @@ div.m-tabs a {
   padding: 4px 15px 4px 15px ;
   position: relative ;
   text-decoration: none ;
+  width: 33% ;
 }
 div.m-tabs a:hover {
   text-decoration: underline ;
@@ -433,12 +438,12 @@ div.m-tabs a.on:hover {
 }
 #messages div.message {
     border-bottom: solid #fff 1px;
-    padding: 0.7em;
+    padding: 0.2em;
     font-family: 'Chau Philomene One', sans-serif;
     height: 58px;  
 }
 #messages div.message p {
-    margin: 0.2em;
+    margin: 0.1em;
     padding: 0;
     color: #333;
 }
@@ -447,13 +452,13 @@ div.m-tabs a.on:hover {
 }
 #messages .avatar-frame{float: left; margin-right:10px; padding:0px; border: 2px solid #fff;}
 #messages .avatar-frame,.avatar-frame img {
-width: 50px;
+width: 20% ;
 height: 50px;
--webkit-border-radius: 10px; /* Saf3+, Chrome */
-border-radius: 10px; /* Opera 10.5, IE 9 */
+-webkit-border-radius: 5px; /* Saf3+, Chrome */
+border-radius: 5px; /* Opera 10.5, IE 9 */
 /*-moz-border-radius: 30px; Disabled for FF1+ */
 float: left;
-margin-right: 14px;
+margin-right: 5px;
 }
 label{
 font-weight:bold;            
@@ -468,7 +473,7 @@ font-weight:bold;
 }
 /*chatlist stuffs*/
 /*input[type=text], input:not([type]) { padding: 0 10px; text-overflow: ellipsis; }*/
-#wrapper { max-width: 305px; margin: auto; padding: 5px; }
+#wrapper { max-width: 100%; margin: auto; padding: 5px; }
 article { background-color: white; box-shadow: 0 0 12px rgba(0, 0, 0, 0.75); border-radius: 5px; }
 /*#summary { text-align: center; padding: 8px 0; }*/
 
