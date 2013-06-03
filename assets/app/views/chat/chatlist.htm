@@ -33,10 +33,12 @@
             </div>
             <div class="well">
             <b>Status: {{ realtimeStatus }} </b> <br/>
-                <form class="form-horizontal">
-                    <label>Name:</label> <input placeholder="Your name" type="text" name="username" ng-model="message.username"/> <br/>                                 
-                    <label>Message:</label> <input placeholder='Write a new message' type="text" name="text" ng-model="message.text"/>               
-                    <button type="submit" ng-click="publish(message)" class="btn btn-primary">Send</button>     
+                <form class="form-vertical">
+                    <label style="font-size: 32px; margin-top: 20px">Name:</label> <br/>
+                    <input style="font-size: 32px; width: 90%; height: 60px" placeholder="Your name" type="text" name="username" ng-model="message.username"/> <br/>                                 
+                    <label style="font-size: 32px; margin-top: 20px">Message:</label> <br/>
+                    <input style="font-size: 32px; width: 90%; height: 60px" placeholder='Write a new message' type="text" name="text" ng-model="message.text"/> <br/>              
+                    <button type="submit" ng-click="publish(message)" class="btn btn-primary" style="height:50px; width:100px; font-size: 32px; margin-top: 40px">Send</button> <br/>     
                 </form>
             </div>
             <hr/>

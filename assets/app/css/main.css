@@ -62,6 +62,7 @@ div.l-splash div.l-container {
   -moz-box-shadow: 0px 0px 5px 1px #666666;
   box-shadow: 0px 0px 5px 1px #666666;
   padding: 0px 0px 1px 0px ;
+  width: 100% ;
 }
 div.l-splash div.l-header 
 {
@@ -134,6 +135,7 @@ div.l-standard div.l-container {
   -moz-box-shadow: 0px 0px 5px 1px #666666;
   box-shadow: 0px 0px 5px 1px #666666;
   padding: 0px 0px 1px 0px ;
+  width: 100%
 }
 div.l-standard div.l-header {
   background-color: #FFFF00 ;
@@ -198,7 +200,7 @@ div.l-standard div.l-header ul li.on a:hover {
 div.l-standard div.l-body {
   margin: 25px 20px 25px 20px ;
   text-align: center ;
-  width: 100% ;
+  width: 97% ;
 }
 div.l-standard div.l-footer {
   color: #999999 ;
@@ -222,7 +224,7 @@ div.l-standard div.l-footer div.author a:hover {
 }
 ul.m-room-list {
   list-style-type: none ;
-  margin: 1px 0px 1px 0px ;
+  margin: 10px 0px 1px 0px ;
   padding: 0px 0px 0px 0px ;
 }
 ul.m-room-list li {
@@ -345,8 +347,10 @@ div.m-chat-header span.back a:hover {
   border-color: #333333 ;
   color: #333333 ;
 }
-div.m-chat-list-header {
+div.m-chat-list-header 
+{
   position: relative ;
+  margin-top: 10px; 
 }
 div.m-chat-list-header span.back {
   color: #999999 ;
@@ -468,19 +472,37 @@ font-weight:bold;
 }
 .well, #progress_bar{
  border-radius:0;   
- margin-top:0;
+ margin-top:10;
 }
 .bar,#progress_bar{
     width:100%;
-    margin-bottom:0;
+    margin-bottom:10;
 }
 
-/*Button settings*/
+/* This does nothing.  Its in the html instead.
+div.container {
+    height:100% ;
+    max-width: 90%; 
+    font-size: 48px ;
+    left: 0px;
+    margin: 0 auto; ;
+}
+
+div.container.quiz-box {
+    height:100% ;
+    max-width: 90%; 
+    font-size: 48px ;
+    left: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 div.container.quiz-box.submit_button {
     height:100px ;
     width:200px ;
     font-size: 48px ;
-}
+    margin-top: 20px;
+}*/
 
 /*general*/
 #wrapper { max-width: 100%; margin: auto; padding: 5px; }

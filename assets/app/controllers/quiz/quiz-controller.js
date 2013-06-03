@@ -59,7 +59,10 @@ ko.bindingHandlers.starRating = {
 		                    type: 'bar'
 		                },
 		                title: {
-		                    text: 'Average rating: '
+		                    text: 'Average rating: ',
+                            style: {
+                                fontSize: '32px'
+                            }
 		                },
 		                subtitle: {
 		                    text: null
@@ -68,25 +71,42 @@ ko.bindingHandlers.starRating = {
 		                    categories: [self.answers[0].answerText, self.answers[1].answerText, self.answers[2].answerText, self.answers[3].answerText],
 		                    title: {
 		                        text: null
+		                    },
+		                    labels: {
+                                style: {
+                                    fontSize: '32px'
+                                }
 		                    }
 		                },
 		                yAxis: {
 		                    min: 0,
 		                    title: {
 		                        text: 'Rating (points)',
-		                        align: 'high'
+		                        align: 'high',
+                                style: {
+                                    fontSize: '24px'
+                                }
 		                    },
 		                    labels: {
-		                        overflow: 'justify'
+		                        overflow: 'justify',
+                                style: {
+                                    fontSize: '24px'
+                                }
 		                    }
 		                },
 		                tooltip: {
-		                    valueSuffix: ' points'
+		                    valueSuffix: ' points',
+                            style: {
+                                fontSize: '32px'
+                            }
 		                },
 		                plotOptions: {
 		                    bar: {
 		                        dataLabels: {
-		                            enabled: true
+		                            enabled: true,
+                                    style: {
+                                        fontSize: '24px'
+                                    }
 		                        }
 		                    }
 		                },
@@ -99,7 +119,10 @@ ko.bindingHandlers.starRating = {
 		                    floating: true,
 		                    borderWidth: 1,
 		                    backgroundColor: '#FFFFFF',
-		                    shadow: true
+		                    shadow: true,
+                            style: {
+                                fontSize: '32px'
+                            }
 		                },
 		                credits: {
 		                    enabled: false
