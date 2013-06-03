@@ -15,10 +15,10 @@
 
 		        if (isLoggedIn) {
 		            $("#login-name").text(client.currentUser.userId);
-		            $('#summary').html('Du är nu inloggad.');
+		            $('#summary').html('You are logged in.');
 		        }
 		        else {
-		            $('#summary').html('<strong>Du måste logga in för att få tillgång till chatt.</strong>');
+		            $('#summary').html('<strong>You must be logged in to gain access to the chat.<strong>');
 		        }
 		    }
 
@@ -31,7 +31,7 @@
 		    function logOut() {
 		        client.logout();
 		        refreshAuthDisplay();
-		        $('#summary').html('<strong>Du måste logga in för att få tillgång till chatt.</strong>');
+		        $('#summary').html('<strong>You must be logged in to gain access to the chat.</strong>');
 		    }
 
 		    // On page init, fetch the data and set up event handlers

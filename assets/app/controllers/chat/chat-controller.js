@@ -44,7 +44,7 @@
 
 			// --- Initialize. ---------------------------------- //
 
-			$scope.setWindowTitle( "Chatt" );
+			$scope.setWindowTitle( "Chat" );
 		}
 	);
 

@@ -42,7 +42,7 @@
 
 			// --- Initialize. ---------------------------------- //
 
-			$scope.setWindowTitle( "Interaktiv Föreläsning" );
+			$scope.setWindowTitle( "Interactive Lecture" );
 		}
 	);
 })(angular, Intlec);

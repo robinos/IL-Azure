@@ -1,8 +1,9 @@
-﻿(function (ng, app)
+﻿//This should be replaced by retrieving the room list from the administration client
+(function (ng, app)
 {	
 	"use strict";
 
-	// I provide a repository for the categories.
+	//Provide a repository for the categories.
 	app.service(
 		"roomService",
 		function ($q, _)
@@ -37,14 +38,14 @@
 			// Set up the rooms data cache. For this demo, we'll just use static data.
 			var cache = [
 				{
-					id: "rum101",
-					name: "Rum 101",
-					description: "Datorkunskap - rum 101.",
+					id: "room101",
+					name: "Room 101",
+					description: "Computer Knowledge - room 101.",
 				},
 				{
-				    id: "rum201",
-				    name: "Rum 201",
-				    description: "Datorkunskap - rum 201."
+				    id: "room201",
+				    name: "Room 201",
+				    description: "Computer Knowledge - room 201."
 				}
 			];
 

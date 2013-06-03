@@ -3,7 +3,7 @@
 
 	<!-- BEGIN: Loading Sequence. -->
 	<div ng-switch-when="true">
-		Laddar....
+		Loading....
 	</div>
 	<!-- END: Loading Sequence. -->
 
@@ -19,7 +19,7 @@
 			    </h1>
 
 			    <span class="back">
-				    <a href="#/chat">Tillbaka</a> &raquo;
+				    <a href="#/chat">Back</a> &raquo;
 			    </span>
 
 		    </div>
@@ -34,9 +34,9 @@
             <div class="well">
             <b>Status: {{ realtimeStatus }} </b> <br/>
                 <form class="form-horizontal">
-                    <label>Namn:</label> <input placeholder="Ditt namn" type="text" name="username" ng-model="message.username"/> <br/>                                 
-                    <label>Meddelande:</label> <input placeholder='Skriv en ny meddelande' type="text" name="text" ng-model="message.text"/>               
-                    <button type="submit" ng-click="publish(message)" class="btn btn-primary">Skicka</button>     
+                    <label>Name:</label> <input placeholder="Your name" type="text" name="username" ng-model="message.username"/> <br/>                                 
+                    <label>Message:</label> <input placeholder='Write a new message' type="text" name="text" ng-model="message.text"/>               
+                    <button type="submit" ng-click="publish(message)" class="btn btn-primary">Send</button>     
                 </form>
             </div>
             <hr/>
@@ -45,6 +45,7 @@
             <div id="messages" class="table-striped">
                 <div class="message" ng-repeat="message in messages" cool-fade>
                 <div class="avatar-frame">
+                <!-- This will only be an empty grey avatar picture since there is no email address -->
                 <img ng-src="http://www.gravatar.com/avatar/{{message.email}}?s=60&r=R&d=https://www.guardly.com/commonassets/images/img_profile_placeholder.png" class="avatar avatar-60 photo" height="60" width="60"/>
                 </div>
                 <p class="user">{{message.username}} said:</p>

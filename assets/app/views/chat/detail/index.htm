@@ -1,4 +1,6 @@
 ﻿
+<!-- This index.htm and all related files in the same subdirectory are an unimplemented placeholder for message handling.
+     Nothing is used. -->
 <div ng-controller="chat.detail.DetailController" ng-switch="isLoading">
 
 
@@ -6,7 +8,7 @@
 	<div ng-switch-when="true">
 
 
-		Laddar....
+		Loading....
 
 
 	</div>
@@ -24,7 +26,7 @@
 			</h1>
 
 			<span class="back">
-				<a href="#/chat/{{ room.id }}">Tillbaka till {{ room.name }}</a> &raquo;
+				<a href="#/chat/{{ room.id }}">Back to {{ room.name }}</a> &raquo;
 			</span>
 
 		</div>

@@ -2,7 +2,7 @@
 table th { text-align:left; }
 table th:last-child { min-width: 130px; }
 
-.starRating span { width:17px; height:15px; background-image: url(star.gif); display:inline-block; cursor: pointer; background-position: 0 0px; }
-.starRating span.chosen { background-position: 0 -32px; }
-.starRating:hover span { background-position: 0 -16px; }
-.starRating:hover span.hoverChosen { background-position: 0 -32px; }
+.starRating span { width:33px; height:31px; background-image: url(star.gif); display:inline-block; cursor: pointer; background-position: 0 0px; }
+.starRating span.chosen { background-position: 0 -64px; }
+.starRating:hover span { background-position: 0 -32px; }
+.starRating:hover span.hoverChosen { background-position: 0 -64px; }

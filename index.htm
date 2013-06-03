@@ -6,9 +6,11 @@
 
 	<title ng-bind="windowTitle">Interaktiv Föreläsning</title>
 
-    <!-- The css file used for defining rating stars for quiz/rating systems, the css for bootstrap, and the main css file -->
+<!--Attempt to use separate style sheets for mobile phones...failed
     <link rel="stylesheet" href="assets/app/css/screen.css" type="text/css" media="Screen" />
-    <link rel="stylesheet" href="assets/app/css/mobile.css" type="text/css" media="handheld" />
+    <link rel="stylesheet" href="assets/app/css/mobile.css" type="text/css" media="handheld" /> -->
+
+    <!-- The css file used for defining rating stars for quiz/rating systems, the css for bootstrap, and the main css file -->
     <link rel="stylesheet" type="text/css" href="assets/app/css/rating.css">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/app/css/main.css">
@@ -23,7 +25,7 @@
 		-->
 		<div ng-switch-when="loading" class="l-loading">			
 			<p>
-				Laddar applikationen
+				Loading application
 			</p>	
 		</div>
 

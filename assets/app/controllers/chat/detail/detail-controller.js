@@ -1,4 +1,5 @@
-﻿(function( ng, app ){
+﻿//This is a placeholder file for future message handling.  It is not used.
+(function( ng, app ){
 
 	"use strict";
 
@@ -101,7 +102,7 @@
 			// --- Initialize. ---------------------------------- //
 
 			// Set the window title.
-			$scope.setWindowTitle( "Loading Chat" );
+			$scope.setWindowTitle( "Loading Message" );
 
 			// Load the "remote" data.
 			loadRemoteData();

@@ -26,7 +26,7 @@
 						applyRemoteData( response );
 					},
 					function( response ) {
-						$scope.openModalWindow( "error", "Av någon anledning kunde rumlistan inte laddas. Försök ladda om sidan." );
+						$scope.openModalWindow( "error", "For some reason the chat room list could not be loaded. Try to refresh the page." );
 					}
 				);
 			}
@@ -70,7 +70,7 @@
 			// --- Initialize. ---------------------------------- //
 
 			// Set the window title.
-			$scope.setWindowTitle( "Chatt" );
+			$scope.setWindowTitle( "Chat" );
 
 			// Load the "remote" data.
 			loadRemoteData();

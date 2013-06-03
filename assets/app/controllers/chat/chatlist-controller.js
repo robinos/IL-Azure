@@ -8,7 +8,7 @@
 		    // --- Define Controller Variables. ----------------- //
 
 		    $scope.messages = [];
-		    $scope.realtimeStatus = "Ansluter...";
+		    $scope.realtimeStatus = "Connecting...";
 		    $scope.channel = "pubnub_chat"; //default
 		    $scope.limit = 20;
 
@@ -64,19 +64,19 @@
 
 		            disconnect: function () {
 		                $scope.$apply(function () {
-		                    $scope.realtimeStatus = 'Inte ansluten';
+		                    $scope.realtimeStatus = 'Disconnected';
 		                });
 		            },
 
 		            reconnect: function () {
 		                $scope.$apply(function () {
-		                    $scope.realtimeStatus = 'Ansluten';
+		                    $scope.realtimeStatus = 'Connected';
 		                });
 		            },
 
 		            connect: function () {
 		                $scope.$apply(function () {
-		                    $scope.realtimeStatus = 'Ansluten';
+		                    $scope.realtimeStatus = 'Connected';
 		                    //hide the progress bar
 		                    $('#progress_bar').slideToggle();
 		                    //load the message history from PubNub
@@ -176,7 +176,7 @@
 			// --- Initialize. ---------------------------------- //
 
 			// Set the interim title.
-			$scope.setWindowTitle( "Laddar chattrum" );
+			$scope.setWindowTitle( "Loading chat room" );
 
 			// Load the "remote" data.
 			loadRemoteData();

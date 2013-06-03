@@ -59,7 +59,7 @@ ko.bindingHandlers.starRating = {
 		                    type: 'bar'
 		                },
 		                title: {
-		                    text: 'Gränssnittsvärden: '
+		                    text: 'Average rating: '
 		                },
 		                subtitle: {
 		                    text: null
@@ -73,7 +73,7 @@ ko.bindingHandlers.starRating = {
 		                yAxis: {
 		                    min: 0,
 		                    title: {
-		                        text: 'Betyg (poäng)',
+		                        text: 'Rating (points)',
 		                        align: 'high'
 		                    },
 		                    labels: {
@@ -81,7 +81,7 @@ ko.bindingHandlers.starRating = {
 		                    }
 		                },
 		                tooltip: {
-		                    valueSuffix: ' poäng'
+		                    valueSuffix: ' points'
 		                },
 		                plotOptions: {
 		                    bar: {
@@ -118,11 +118,11 @@ ko.bindingHandlers.starRating = {
 		        };
 		    }
 
-		    ko.applyBindings(new SurveyViewModel("Betygsätt din forståelse: ", [
-               "Lab1 procedur",
-               "Signaturer i PHP",
-               "Monitorer",
-               "Stor O notation"
+		    ko.applyBindings(new SurveyViewModel("Rate your understanding: ", [
+               "Lab1 procedure",
+               "Signatures in PHP",
+               "Monitors",
+               "Big O notation"
 		    ]));
 
 			// ...

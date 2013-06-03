@@ -1,8 +1,10 @@
-﻿(function (ng, app)
+﻿//This remains as a placeholder file for setting special attributes on chat rooms.
+//It is still used with the demo to retrieve the chat rooms using room-service, so alter with care.
+(function (ng, app)
 {
 	"use strict";
 
-	// I provide a repository for the chat.
+	// Provide a repository for the chat.
 	app.service(
 		"chatService",
 		function( $q, _ ) {
@@ -42,9 +44,12 @@
 			// by the server-side relational database; but, since we're using static data, this will 
 			// just make the code easier to read.
 			var rooms = {
-			    room101: "rum101",
-			    room201: "rum201"
+			    room101: "room101",
+			    room201: "room201"
 			};
+
+
+            //**The following should be removed, along with other references to this old code.**
 
 			// Set up a collection of size constants.
 			var sizes = {
